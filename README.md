@@ -1,10 +1,6 @@
 # k8s-cka-final
 Chuẩn bị môi trường GCP
 ```
-$ gcloud config list
-![image](https://user-images.githubusercontent.com/54676613/134762880-7b07d414-aa5d-4841-a907-0905562cf6d1.png)
-
-
 $ gcloud compute firewall-rules create nodeports --allow tcp:30000-40000
 $ gcloud compute firewall-rules create kube-api-server --allow tcp:6443
 
@@ -25,5 +21,5 @@ done
 Kiểm tra các VM đã tạo trên GCP
 ```
 $ gcloud compute instances list
-![image](https://user-images.githubusercontent.com/54676613/134762887-396be916-9903-4557-a603-b262ae009bd0.png)
 ```
+![image](https://user-images.githubusercontent.com/54676613/134762887-396be916-9903-4557-a603-b262ae009bd0.png)

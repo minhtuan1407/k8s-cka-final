@@ -10,4 +10,4 @@ spec:
   - from:
       - podSelector:
           matchLabels:
-            access: accepted
+            app: web2

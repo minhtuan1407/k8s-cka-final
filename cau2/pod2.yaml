@@ -32,12 +32,12 @@ spec:
     args: ["-c", "while true; do echo $(hostname) $(date) >> /vol/date.log; sleep 5; done"]
     volumeMounts:
     - name: my-volume
-      mountPath: /var/log
+      mountPath: /vol
   - name: c2
     image: busybox:1.31.1
     volumeMounts:
     - name: my-volume
-      mountPath: /usr/share/nginx/html
+      mountPath: /vol
   volumes:
   - name: my-volume 
     emptyDir: {}

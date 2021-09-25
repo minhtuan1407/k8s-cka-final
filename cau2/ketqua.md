@@ -8,3 +8,5 @@ $ kubectl create namespace cau2
 # Container c1 sử dụng image busybox:1.31.1 và ghi kết quả của lệnh date vào file /vol/date.log mỗi 5 giây trên shared volume.
 
 # Container c2 sử dụng image busybox:1.31.1 liên tục xuất nội dung của date.log ra màn hình sử dụng lệnh tail.
+
+# Kiểm tra log của container c2 và ghi kết quả

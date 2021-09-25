@@ -28,7 +28,7 @@ metadata:
   name: my-volume
   namespace: cau2
 spec:
-  storageClassName: faster
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:

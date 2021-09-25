@@ -1,6 +1,6 @@
 # 1. Tạo một pod đặt tên là web, sử dụng image nginx:latest thoả mãn điều kiện chỉ chạy master node, không được schedule lên worker node.
 ```
-# Cho phép control plan chạy workload trên đó
+# Cho phép workload chạy trên control plane
 $ kubectl taint nodes kube-master node-role.kubernetes.io/master-
 
 # Tạo label cho master node ví dụ như disktype

@@ -5,9 +5,9 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      access: accepted
+      app: web2
   ingress:
   - from:
       - podSelector:
           matchLabels:
-            app: web2
+            access: accepted

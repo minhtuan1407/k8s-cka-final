@@ -6,11 +6,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: webapp2
+      app: app2
   template:
     metadata:
       labels:
-        app: webapp2
+        app: app2
     spec:
       containers:
       - name: webapp2
@@ -25,7 +25,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: webapp2
+    app: app2
   ports:
   - port: 80
     protocol: TCP

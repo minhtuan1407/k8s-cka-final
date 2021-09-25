@@ -6,6 +6,14 @@ metadata:
   labels:
     name: cau2
 ---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: fast
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-standard
+---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -14,7 +22,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: faster
+  storageClassName: fast
   capacity:
     storage: 50Gi
   accessModes:
@@ -28,7 +36,7 @@ metadata:
   name: my-volume
   namespace: cau2
 spec:
-  storageClassName: faster
+  storageClassName: fast
   accessModes:
     - ReadWriteOnce
   resources:

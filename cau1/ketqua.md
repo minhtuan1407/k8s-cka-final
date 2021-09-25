@@ -76,19 +76,24 @@ $ kubectl get deployment -l app=webapp -owide
 ```
 $ kubectl expose deployment webapp --type NodePort --port 80
 ```
+![image](https://user-images.githubusercontent.com/54676613/134764337-9cb385a8-4b60-4c23-ada6-62c27a549479.png)
 
 # 4. Chạy lệnh curl để truy cập vào webapp.
 ```
 # Đứng ở pod trong cluster curl
 $ kubectl run bb -it --rm --image radial/busyboxplus:curl --restart Never -- curl http://webapp
 ```
+![image](https://user-images.githubusercontent.com/54676613/134764324-9a30709d-8226-4e25-9612-6fed21c1a277.png)
 
 ```
 # Đứng ở 1 node bất kỳ curl
-$ curl http://
+$ curl http://10.99.20.187
 ```
+![image](https://user-images.githubusercontent.com/54676613/134764347-20ee5ed6-a168-439d-bfe5-248442741e37.png)
 
 ```
 # Đứng ở public curl
-$ curl http:// :
+$ curl http://35.198.208.19:32651
+$ curl http://35.198.219.50:32651
+$ curl http://35.186.145.245:32651
 ```

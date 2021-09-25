@@ -8,10 +8,10 @@ $ kubectl apply -f https://raw.githubusercontent.com/minhtuan1407/k8s-cka-final/
 ```
 # 3. Tạo một pod với tên là busybox thoả mãn điều kiện của Network Policy để kiểm tra vào webapp2 deployment thông qua ClusterIP service. Chạy lệnh wget trên pod này để truy cập vào webapp.
 ```
-$ kubectl run test-$RANDOM --rm -i -t --image=alpine --labels access=accepted -- sh
+$ kubectl run test --rm -i -t --image=alpine --labels access=accepted -- sh
 / # wget -qO- --timeout=2 http://webapp2
 
-$ kubectl run test-$RANDOM --rm -i -t --image=alpine -- sh
+$ kubectl run test --rm -i -t --image=alpine -- sh
 / # wget -qO- --timeout=2 http://webapp2
 ```
 wget: download timed out

@@ -66,10 +66,11 @@ $ kubectl create deployment webapp --image=nginx:1.18.0
 
 $ kubectl scale deployment webapp --replicas=2
 
-$ kubetl get pod
+$ kubectl get pod -l app=webapp -owide
 
-$ kubectl get deployment
+$ kubectl get deployment -l app=webapp -owide
 ```
+![image](https://user-images.githubusercontent.com/54676613/134764294-6a2a6ceb-a415-4422-95fb-fa73d88a7f0d.png)
 
 # 3. Expose webapp sử dụng một dịch vụ dạng NodePort.
 ```

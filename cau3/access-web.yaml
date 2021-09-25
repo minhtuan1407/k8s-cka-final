@@ -1,0 +1,13 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: webapp2-allow
+spec:
+  podSelector:
+    matchLabels:
+      access: accepted
+  ingress:
+  - from:
+      - podSelector:
+          matchLabels:
+            access: accepted

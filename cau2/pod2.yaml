@@ -14,7 +14,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: manual
+  storageClassName: faster
   capacity:
     storage: 50Gi
   accessModes:
@@ -28,7 +28,7 @@ metadata:
   name: my-volume
   namespace: cau2
 spec:
-  storageClassName: manual
+  storageClassName: faster
   accessModes:
     - ReadWriteOnce
   resources:

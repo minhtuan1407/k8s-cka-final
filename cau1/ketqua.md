@@ -1,4 +1,4 @@
-# Câu 1
+# Tạo 1 kubernetes cluster bao gồm 1 master + 2 workers. Liệt kê các node của cluster và thông tin chi tiết: ROLES, INTERNAL-IP, EXTERNAL-IP, ...
 ## Command trên cả 3 node
 ```
 $ sudo apt-get update
@@ -65,3 +65,5 @@ $ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl vers
 ```
 $ kubectl get nodes -owide
 ```
+
+# Tạo 1 deployment tên là webapp với 2 replica, sử dụng image nginx 1.18.0. Kiểm tra trạng thái của deployment và pod.

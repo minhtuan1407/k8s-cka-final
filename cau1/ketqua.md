@@ -92,8 +92,9 @@ $ curl http://10.99.20.187
 ![image](https://user-images.githubusercontent.com/54676613/134764347-20ee5ed6-a168-439d-bfe5-248442741e37.png)
 
 ```
-# Đứng ở public curl
+# Đứng ở public curl 3 IP public của 3 node GCP
 $ curl http://35.198.208.19:32651
 $ curl http://35.198.219.50:32651
 $ curl http://35.186.145.245:32651
 ```
+![image](https://user-images.githubusercontent.com/54676613/134764440-47b77397-c9b3-4ff0-af88-5ec03d428947.png)

@@ -2,7 +2,14 @@
 Chuẩn bị môi trường GCP
 ```
 $ gcloud config list
-![image](https://user-images.githubusercontent.com/54676613/134762683-bfa2ed9f-3042-4dc7-b0c4-cb3d363c2f9d.png)
+[compute]
+region = asia-southeast1
+zone = asia-southeast1-c
+[core]
+account = m.tuan9a2@gmail.com
+disable_usage_reporting = False
+project = learn-kubernetes-326814
+
 
 $ gcloud compute firewall-rules create nodeports --allow tcp:30000-40000
 $ gcloud compute firewall-rules create kube-api-server --allow tcp:6443
@@ -24,5 +31,8 @@ done
 Kiểm tra các VM đã tạo trên GCP
 ```
 $ gcloud compute instances list
-![image](https://user-images.githubusercontent.com/54676613/134762775-c1ac9b85-cf0e-487d-8eb9-72f792ccb185.png)
+NAME          ZONE               MACHINE_TYPE  PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP     STATUS
+kube-master   asia-southeast1-c  e2-medium                  10.148.0.5   35.198.208.19   RUNNING
+kube-worker1  asia-southeast1-c  e2-medium                  10.148.0.6   35.198.219.50   RUNNING
+kube-worker2  asia-southeast1-c  e2-medium                  10.148.0.7   35.186.145.245  RUNNING
 ```

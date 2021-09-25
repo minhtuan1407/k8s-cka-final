@@ -67,3 +67,33 @@ $ kubectl get nodes -owide
 ```
 
 # Tạo 1 deployment tên là webapp với 2 replica, sử dụng image nginx 1.18.0. Kiểm tra trạng thái của deployment và pod.
+```
+$ kubectl create deployment webapp --image=nginx:1.18.0
+
+$ kubectl scale deployment webapp --replicas=2
+
+$ kubetl get pod
+
+$ kubectl get deployment
+```
+
+# Expose webapp sử dụng một dịch vụ dạng NodePort.
+```
+$ kubectl expose deployment webapp --type NodePort --port 80
+```
+
+# Chạy lệnh curl để truy cập vào webapp.
+```
+# Đứng ở pod trong cluster curl
+$ kubectl run bb -it --rm --image radial/busyboxplus:curl --restart Never -- curl http://webapp
+```
+
+```
+# Đứng ở 1 node bất kỳ curl
+$ curl http://
+```
+
+```
+# Đứng ở public curl
+$ curl http:// :
+```

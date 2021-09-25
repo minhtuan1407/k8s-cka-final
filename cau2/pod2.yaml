@@ -1,8 +1,16 @@
 ---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: cau2
+  labels:
+    name: cau2
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: my-volume
+  namespace: cau2
 spec:
   storageClassName: faster
   accessModes:
@@ -15,6 +23,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pod2
+  namespace: cau2
 spec:
   containers:
   - name: c1

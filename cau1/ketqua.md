@@ -37,7 +37,7 @@ $ sudo systemctl start kubelet
 ## Command chỉ nhập trên node kube-master
 ```
 # Khi chạy command này sẽ ra được dòng output cuối cùng để nhập trên 2 node worker
-$ sudo kubeadm init --apiserver-cert-extra-sans=35.198.208.19 --apiserver-advertise-address=35.198.208.19 --kubernetes-version=${KUBE_VERSION}
+$ sudo kubeadm init --apiserver-cert-extra-sans=35.198.208.19 --kubernetes-version=${KUBE_VERSION}
 
 $ mkdir -p $HOME/.kube
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -45,7 +45,7 @@ $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 ## Command chỉ nhập kube-worker1
 ```
-# Lấy dòng output cuối cùng của command $ sudo kubeadm init" để join 2 node worker vào cluster
+# Lấy dòng output cuối cùng của command "sudo kubeadm init" để join 2 node worker vào cluster
 $ sudo kubeadm join 10.148.0.5:6443 \
       --token u2vno2.fxunfaa7pmp1h5vq \   
       --discovery-token-ca-cert-hash sha256:3fb1705a4afb0a8e5b5af93f0105e18b6df33e87b444f1a7be516d0e8b6e783a

@@ -5,7 +5,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: web2
+      app: webapp2
   ingress:
   - from:
       - podSelector:

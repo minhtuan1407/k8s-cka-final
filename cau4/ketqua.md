@@ -8,6 +8,7 @@ $ kubectl label nodes kube-master disktype=ssd
 
 $ kubectl apply -f https://raw.githubusercontent.com/minhtuan1407/k8s-cka-final/main/cau4/pod.yaml
 ```
+
 # 2. Kiểm tra trạng thái để chắc chắn pod được khởi tạo và vận hành bình thường trên master node
 ```
 $ kubectl get pod -owide -l app=web

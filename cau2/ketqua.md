@@ -13,3 +13,4 @@ $ kubectl apply -f https://raw.githubusercontent.com/minhtuan1407/k8s-cka-final/
 ```
 $ kubectl exec -it -n cau2 pod2 -c c2 -- tail -f /vol/date.log
 ```
+![image](https://user-images.githubusercontent.com/54676613/134767179-7539284f-bc9a-4f62-9606-2318b7df8ee4.png)

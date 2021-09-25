@@ -1,1 +1,67 @@
+# Câu 1
+## Command trên cả 3 node
+```
+$ sudo apt-get update
+$ sudo apt-get install -y apt-transport-https ca-certificates curl
+$ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+$ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
+$ KUBE_VERSION=1.21.0
+$ sudo apt-get install -y \
+  docker.io \
+  kubelet=${KUBE_VERSION}-00 \
+  kubeadm=${KUBE_VERSION}-00 \
+  kubectl=${KUBE_VERSION}-00
+$ sudo apt-mark hold kubelet kubeadm kubectl
+
+$ sudo bash -c 'cat > /etc/docker/daemon.json <<EOF
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "storage-driver": "overlay2"
+}
+EOF'
+
+$ sudo mkdir -p /etc/systemd/system/docker.service.d
+
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart docker
+$ sudo systemctl enable docker
+
+$ sudo docker info | grep -i "storage"
+$ sudo docker info | grep -i "cgroup"
+
+$ sudo systemctl enable kubelet
+$ sudo systemctl start kubelet
+```
+## Command chỉ nhập trên node kube-master
+```
+# Khi chạy command này sẽ ra được dòng output cuối cùng để nhập trên 2 node worker
+$ sudo kubeadm init --apiserver-cert-extra-sans=35.198.208.19 --apiserver-advertise-address=35.198.208.19 --kubernetes-version=${KUBE_VERSION}
+
+$ mkdir -p $HOME/.kube
+$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+## Command chỉ nhập kube-worker1
+```
+# Lấy dòng output cuối cùng của command $ sudo kubeadm init" để join 2 node worker vào cluster
+$ sudo kubeadm join 10.148.0.5:6443 \
+      --token u2vno2.fxunfaa7pmp1h5vq \   
+      --discovery-token-ca-cert-hash sha256:3fb1705a4afb0a8e5b5af93f0105e18b6df33e87b444f1a7be516d0e8b6e783a
+```
+## Command chỉ nhập kube-worker2
+```
+# Lấy dòng output cuối cùng của command $ sudo kubeadm init" để join 2 node worker vào cluster
+$ sudo kubeadm join 10.148.0.5:6443 \
+      --token u2vno2.fxunfaa7pmp1h5vq \   
+      --discovery-token-ca-cert-hash sha256:3fb1705a4afb0a8e5b5af93f0105e18b6df33e87b444f1a7be516d0e8b6e783a
+```
+## Command chỉ nhập trên node kube-master để cài CNI cho cluster
+```
+$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+```
+## Command chỉ nhập trên node kube-master để kiểm tra cluster 
+```
+$ kubectl get nodes -owide
+```

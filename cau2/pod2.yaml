@@ -52,6 +52,7 @@ spec:
   - name: c2
     image: busybox:1.31.1
     command: ["/bin/sh"]
+    args: ["tail -f /vol/date.log"]
     volumeMounts:
     - name: my-volume
       mountPath: /vol

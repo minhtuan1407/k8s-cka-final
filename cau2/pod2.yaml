@@ -60,7 +60,7 @@ spec:
   - name: c2
     image: busybox:1.31.1
     command: ["/bin/sh"]
-    args: ["sleep 3600", "tail -f /vol/date.log"]
+    args: ["sleep 3600"]
     volumeMounts:
     - name: my-volume
       mountPath: /vol

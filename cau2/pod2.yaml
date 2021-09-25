@@ -9,7 +9,8 @@ metadata:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: task-pv-volume
+  name: my-volume
+  namespace: cau2
   labels:
     type: local
 spec:

@@ -1,4 +1,4 @@
-# Tạo 1 kubernetes cluster bao gồm 1 master + 2 workers. Liệt kê các node của cluster và thông tin chi tiết: ROLES, INTERNAL-IP, EXTERNAL-IP, ...
+# 1. Tạo 1 kubernetes cluster bao gồm 1 master + 2 workers. Liệt kê các node của cluster và thông tin chi tiết: ROLES, INTERNAL-IP, EXTERNAL-IP, ...
 ## Command trên cả 3 node
 ```
 $ sudo apt-get update
@@ -66,7 +66,7 @@ $ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl vers
 $ kubectl get nodes -owide
 ```
 
-# Tạo 1 deployment tên là webapp với 2 replica, sử dụng image nginx 1.18.0. Kiểm tra trạng thái của deployment và pod.
+# 2. Tạo 1 deployment tên là webapp với 2 replica, sử dụng image nginx 1.18.0. Kiểm tra trạng thái của deployment và pod.
 ```
 $ kubectl create deployment webapp --image=nginx:1.18.0
 
@@ -77,12 +77,12 @@ $ kubetl get pod
 $ kubectl get deployment
 ```
 
-# Expose webapp sử dụng một dịch vụ dạng NodePort.
+# 3. Expose webapp sử dụng một dịch vụ dạng NodePort.
 ```
 $ kubectl expose deployment webapp --type NodePort --port 80
 ```
 
-# Chạy lệnh curl để truy cập vào webapp.
+# 4. Chạy lệnh curl để truy cập vào webapp.
 ```
 # Đứng ở pod trong cluster curl
 $ kubectl run bb -it --rm --image radial/busyboxplus:curl --restart Never -- curl http://webapp

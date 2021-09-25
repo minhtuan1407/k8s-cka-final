@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: web2
+        app: webapp2
     spec:
       containers:
       - name: webapp2
